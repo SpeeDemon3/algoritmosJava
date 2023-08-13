@@ -1,6 +1,8 @@
 package algoritmoDeOrdenacion;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 
@@ -150,6 +152,84 @@ public class Function {
 		
 		// Retornamos el valor de la lista ordenada
 		return listSolution;
+		
+	}
+	
+	/* Ordenacion rapida (quicksort) */
+	
+	/**
+	 * Metodo para ordenar una lista de enteros
+	 * @param list -> Lista que se desea ordenar
+	 * @return -> Lista ordenada
+	 */
+	public static List<Integer> quickSort(List<Integer> list) {
+		
+		// Compruebo si la lista solo tiene un elemento
+		if(list.size() <= 1) {
+			
+			return list;
+			
+		// En caso contrario
+		} else {
+			
+			// Asigno el numero del elemento que hara de pivote
+			Integer pivot = choosePivot(list);
+			
+			// Creo 3 listas para poder partir la lista
+			List<Integer> minorNumbers = new ArrayList<Integer>();
+			List<Integer> equalNumbers = new ArrayList<Integer>();
+			List<Integer> largerNumbers = new ArrayList<Integer>();
+			
+			// Utilizando el bucle for-each recorro la lista
+			for (Integer number : list) {
+				
+				// Compruebo si number es menor al pivote
+				if (number < pivot) {
+					// Lo añado a la lista de numeros mas pequeños que el pivote
+					minorNumbers.add(number);
+				
+				// En caso de que number sea mayor al pivote
+				} else if (number > pivot) {
+					// Lo añado a la lista de numeros mayores que el pivote
+					largerNumbers.add(number);
+					
+				// En caso de que number sea igual que el pivote
+				} else {
+					// Lo añado a la lista de los numeros iguales a pivote
+					equalNumbers.add(number);
+					
+				}
+				
+			}
+			
+			
+			// Utilizando la recursividad voy ordenando las listas
+			minorNumbers = quickSort(minorNumbers);
+			largerNumbers = quickSort(largerNumbers);
+			
+			// Añado los elementos ordenados a la lista de los menores
+			minorNumbers.addAll(equalNumbers);
+			minorNumbers.addAll(largerNumbers);
+			
+			// Retornamos la lista ordenada
+			return minorNumbers;
+			
+		}
+		
+		
+	}
+	
+	/**
+	 * Metodo para obtener una posicion
+	 * aleatoria
+	 * @param list -> Lista para obtener una posicion
+	 * @return -> Posicion de la lista
+	 */
+	protected static Integer choosePivot(List<Integer> list) {
+		
+		int position = (int) (Math.random() * list.size());
+		
+		return list.get(position);
 		
 	}
 	

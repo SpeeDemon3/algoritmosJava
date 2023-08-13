@@ -1,4 +1,8 @@
 package algoritmoDeOrdenacion;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * @author speedemon -> Antonio Ruiz Benito
@@ -52,7 +56,43 @@ public class Main {
 		
 		// Algoritmo Ordenacion rapida (quicksort)
 		
+		System.out.println("Ordenación rapida (quicksort):");
 		
+		List<Integer> numbers5 = new ArrayList<Integer>();
+		
+		// Añado elementos a la lista
+		numbers5.add(32);
+		numbers5.add(1);
+		numbers5.add(45);
+		numbers5.add(100);
+		numbers5.add(4);
+		numbers5.add(205);
+		numbers5.add(29);
+		numbers5.add(1987);
+		numbers5.add(13);
+		numbers5.add(45);
+		
+		System.out.println("Lista sin ordenar:");
+		
+		for (int i : numbers5) {
+			
+			System.out.println(i);
+		}
+		
+		System.out.println();
+		
+		List<Integer> orderedNumbers = Function.quickSort(numbers5);
+		
+		System.out.println("Lista ordenada:");
+		
+		for (int i : orderedNumbers) {
+			
+			System.out.println(i);
+			
+		}
+		
+		System.out.println("-------------------------------------------");
+
 	}
 
 }
