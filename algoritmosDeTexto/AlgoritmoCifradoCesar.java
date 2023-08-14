@@ -35,7 +35,7 @@ public class AlgoritmoCifradoCesar {
 	 * Metodo privado para cifrar un caracter individual
 	 * @param letter -> Caracter que se desea cifrar
 	 * @param displacement -> Desplazamiento
-	 * @return -> caracter cifrado
+	 * @return -> caracter cifrado 
 	 */
 	private static char cipher(char letter, int displacement) {
 		

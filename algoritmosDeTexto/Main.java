@@ -1,4 +1,7 @@
 package algoritmosDeTexto;
+
+import java.util.List;
+
 /**
  * 
  * @author speedemon -> Antonio Ruiz Benito
@@ -14,6 +17,14 @@ public class Main {
 		
 		System.out.println("Texto original -> " + origin);
 		System.out.println("Texto cifrado Cesar -> " + textCihper);
+		
+		
+		String text = "asbadbabcaseabc";
+		String pattern = "abc";
+		
+		List<Integer> result = AlgoritmoBusquedaCadenaBoyerMoore.search(text, pattern);
+		
+		System.out.println("Resultados de búsqueda: " + result);
 		
 	}
 
